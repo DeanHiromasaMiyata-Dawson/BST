@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 /**
  *  JUnit tests for BST
  */
-public class BSTStudentTest {
+public class BSTTest {
 
 	private static final int TIMEOUT = 200;
 	private BST<Integer> tree;
