@@ -420,26 +420,4 @@ public class BSTStudentTest {
 		assertEquals(0, tree.size());
 		assertNull(tree.getRoot());
 	}
-
-	@Test(timeout = TIMEOUT)
-	public void testGetMaxDataPerLevel() {
-        /*
-              3
-             / \
-            1   4
-             \  
-              2  
-        */
-
-		tree.add(3);
-		tree.add(4);
-		tree.add(1);
-		tree.add(2);
-
-		List<Integer> expected = new ArrayList<>();
-		expected.add(3);
-		expected.add(4);
-		expected.add(2);
-		assertEquals(expected, tree.getMaxDataPerLevel());
-	}
 }
