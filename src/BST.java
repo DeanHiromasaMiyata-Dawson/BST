@@ -6,16 +6,7 @@ import java.util.Queue;
 import java.util.LinkedList;
 
 /**
- * Your implementation of a BST.
- *
- * @author Dean Miyata-Dawson
- * @version 1.0
- * @userid ddawson42
- * @GTID 903833148
- *
- * Collaborators: LIST ALL COLLABORATORS YOU WORKED WITH HERE
- *
- * Resources: LIST ALL NON-COURSE RESOURCES YOU CONSULTED HERE
+ * Implementation of a BST.
  */
 public class BST<T extends Comparable<? super T>> {
 	/*
