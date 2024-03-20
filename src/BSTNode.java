@@ -1,12 +1,6 @@
 /**
  * Node class used for implementing the BST.
- *
- * DO NOT MODIFY THIS FILE!!
- *
- * @author CS 1332 TAs
- * @version 1.0
  */
-
 public class BSTNode<T extends Comparable<? super T>> {
 
 	private T data;
