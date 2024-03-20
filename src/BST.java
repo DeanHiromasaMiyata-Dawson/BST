@@ -229,11 +229,9 @@ public class BST<T extends Comparable<? super T>> {
 	}
 
 	/**
-	 * Generate a pre-order traversal of the tree.
+	 * Recursively generates a pre-order traversal of the tree.
 	 *
-	 * This must be done recursively.
-	 *
-	 * Must be O(n).
+	 * O(n).
 	 *
 	 * @return the preorder traversal of the tree
 	 */
@@ -259,11 +257,9 @@ public class BST<T extends Comparable<? super T>> {
 	}
 
 	/**
-	 * Generate an in-order traversal of the tree.
+	 * Recursively generates an in-order traversal of the tree.
 	 *
-	 * This must be done recursively.
-	 *
-	 * Must be O(n).
+	 * O(n).
 	 *
 	 * @return the inorder traversal of the tree
 	 */
@@ -287,11 +283,9 @@ public class BST<T extends Comparable<? super T>> {
 	}
 
 	/**
-	 * Generate a post-order traversal of the tree.
+	 * Recursively generates a post-order traversal of the tree.
 	 *
-	 * This must be done recursively.
-	 *
-	 * Must be O(n).
+	 * O(n).
 	 *
 	 * @return the postorder traversal of the tree
 	 */
@@ -317,13 +311,7 @@ public class BST<T extends Comparable<? super T>> {
 	/**
 	 * Generate a level-order traversal of the tree.
 	 *
-	 * This does not need to be done recursively.
-	 *
-	 * Hint: You will need to use a queue of nodes. Think about what initial
-	 * node you should add to the queue and what loop / loop conditions you
-	 * should use.
-	 *
-	 * Must be O(n).
+	 * O(n).
 	 *
 	 * @return the level order traversal of the tree
 	 */
@@ -349,14 +337,12 @@ public class BST<T extends Comparable<? super T>> {
 	}
 
 	/**
-	 * Returns the height of the root of the tree.
-	 *
-	 * This must be done recursively.
+	 * Recursively returns the height of the root of the tree.
 	 *
 	 * A node's height is defined as max(left.height, right.height) + 1. A
 	 * leaf node has a height of 0 and a null child has a height of -1.
 	 *
-	 * Must be O(n).
+	 * O(n).
 	 *
 	 * @return the height of the root of the tree, -1 if the tree is empty
 	 */
@@ -390,105 +376,20 @@ public class BST<T extends Comparable<? super T>> {
 	}
 
 	/**
-	 * Generates a list of the max data per level from the top to the bottom
-	 * of the tree. (Another way to think about this is to get the right most
-	 * data per level from top to bottom.)
-	 *
-	 * This must be done recursively.
-	 *
-	 * This list should contain the last node of each level.
-	 *
-	 * If the tree is empty, an empty list should be returned.
-	 *
-	 * Ex:
-	 * Given the following BST composed of Integers
-	 *      2
-	 *    /   \
-	 *   1     4
-	 *  /     / \
-	 * 0     3   5
-	 * getMaxDataPerLevel() should return the list [2, 4, 5] - 2 is the max
-	 * data of level 0, 4 is the max data of level 1, and 5 is the max data of
-	 * level 2
-	 *
-	 * Ex:
-	 * Given the following BST composed of Integers
-	 *               50
-	 *           /        \
-	 *         25         75
-	 *       /    \
-	 *      12    37
-	 *     /  \    \
-	 *   11   15   40
-	 *  /
-	 * 10
-	 * getMaxDataPerLevel() should return the list [50, 75, 37, 40, 10] - 50 is
-	 * the max data of level 0, 75 is the max data of level 1, 37 is the
-	 * max data of level 2, etc.
-	 *
-	 * Must be O(n).
-	 *
-	 * @return the list containing the max data of each level
-	 */
-
-	public List<T> getMaxDataPerLevel() {
-		List<T> list = new ArrayList<>();
-		int maxLevel = 0;
-		int level = 0;
-
-		list.add(root.getData());
-		while (level < height() - 1) {
-			list.add(getMaxDataPerLevelHelper(root, maxLevel, level));
-		}
-
-		return list;
-	}
-
-	/**
-	 * helper method for getMaxDataPerLevel
-	 * @param list final list of max data from each level
-	 * @param node current node
-	 * @param maxLevel levels recorded in the list so far
-	 * @param level current depth
-	 */
-	private T getMaxDataPerLevelHelper(BSTNode<T> node, int maxLevel, int level) {
-		if (node == null) {
-			return null;
-		}
-
-		if (maxLevel < level) {
-			return node.getData();
-			maxLevel = level;
-		}
-		getMaxDataPerLevelHelper(node.getRight(), maxLevel, level + 1);
-		getMaxDataPerLevelHelper(node.getLeft(), maxLevel, level + 1);
-
-		return null;
-	}
-
-	/**
 	 * Returns the root of the tree.
-	 *
-	 * For grading purposes only. You shouldn't need to use this method since
-	 * you have direct access to the variable.
 	 *
 	 * @return the root of the tree
 	 */
 	public BSTNode<T> getRoot() {
-		// DO NOT MODIFY THIS METHOD!
 		return root;
 	}
 
 	/**
 	 * Returns the size of the tree.
 	 *
-	 * For grading purposes only. You shouldn't need to use this method since
-	 * you have direct access to the variable.
-	 *
 	 * @return the size of the tree
 	 */
 	public int size() {
-		// DO NOT MODIFY THIS METHOD!
 		return size;
 	}
 }
