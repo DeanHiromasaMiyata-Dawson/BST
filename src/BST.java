@@ -9,38 +9,29 @@ import java.util.LinkedList;
  * Implementation of a BST.
  */
 public class BST<T extends Comparable<? super T>> {
-	/*
-	 * Do not add new instance variables or modify existing ones.
-	 */
 	private BSTNode<T> root;
 	private int size;
 
 	/**
 	 * Constructs a new BST.
 	 * <p>
-	 * This constructor should initialize an empty BST.
+	 * Initializes an empty BST.
 	 * <p>
 	 * Since instance variables are initialized to their default values, there
 	 * is no need to do anything for this constructor.
 	 */
 	public BST() {
-		// DO NOT IMPLEMENT THIS CONSTRUCTOR!
+		
 	}
 
 	/**
 	 * Constructs a new BST.
 	 *
-	 * This constructor should initialize the BST with the data in the
-	 * Collection. The data should be added in the same order it is in the
-	 * Collection.
-	 *
-	 * Hint: Not all Collections are indexable like Lists, so a regular for loop
-	 * will not work here. However, all Collections are Iterable, so what type
-	 * of loop would work?
+	 * Initializes the BST with the data in the Collection. 
+  	 * Data is added in the same order it is in the Collection.
 	 *
 	 * @param data the data to add
-	 * @throws java.lang.IllegalArgumentException if data or any element in data
-	 *                                            is null
+	 * @throws java.lang.IllegalArgumentException if data or any element in data is null
 	 */
 	public BST(Collection<T> data) {
 		if (data == null || data.contains(null)) {
@@ -55,17 +46,15 @@ public class BST<T extends Comparable<? super T>> {
 	}
 
 	/**
-	 * Adds the data to the tree.
-	 *
-	 * This must be done recursively.
+	 * Adds the data to the tree recursively.
 	 *
 	 * The data becomes a leaf in the tree.
 	 *
-	 * Traverse the tree to find the appropriate location. If the data is
-	 * already in the tree, then nothing should be done (the duplicate
-	 * shouldn't get added, and size should not be incremented).
+	 * Traverses the tree to find the appropriate location. 
+  	 * If the data isalready in the tree, then nothing should be done
+	 * Duplicate does not get added, and size is not incremented.
 	 *
-	 * Must be O(log n) for best and average cases and O(n) for worst case.
+	 * O(log n) for best and average cases and O(n) for worst case.
 	 *
 	 * @param data the data to add
 	 * @throws java.lang.IllegalArgumentException if data is null
@@ -85,6 +74,7 @@ public class BST<T extends Comparable<? super T>> {
 
 	/**
 	 * helper method for add
+  	 *
 	 * @param data data user wants to add
 	 * @param node current node
 	 */
@@ -107,11 +97,9 @@ public class BST<T extends Comparable<? super T>> {
 	}
 
 	/**
-	 * Removes and returns the data from the tree matching the given parameter.
+	 * Recursively removes and returns the data from the tree matching the given parameter 
 	 *
-	 * This must be done recursively.
-	 *
-	 * There are 3 cases to consider:
+	 * 3 cases:
 	 * 1: The node containing the data is a leaf (no children). In this case,
 	 * simply remove it.
 	 * 2: The node containing the data has one child. In this case, simply
@@ -121,12 +109,7 @@ public class BST<T extends Comparable<? super T>> {
 	 * predecessor (you will likely need an additional helper method to
 	 * handle this case efficiently).
 	 *
-	 * Do not return the same data that was passed in. Return the data that
-	 * was stored in the tree.
-	 *
-	 * Hint: Should you use value equality or reference equality?
-	 *
-	 * Must be O(log n) for best and average cases and O(n) for worst case.
+	 * O(log n) for best and average cases and O(n) for worst case.
 	 *
 	 * @param data the data to remove
 	 * @return the data that was removed
@@ -144,6 +127,7 @@ public class BST<T extends Comparable<? super T>> {
 
 	/**
 	 * helper method for remove
+  	 *
 	 * @param data data user wants to remove
 	 * @param node current node
 	 * @param removed node that got removed
@@ -175,6 +159,7 @@ public class BST<T extends Comparable<? super T>> {
 
 	/**
 	 * finds the predecessor the node that is about to get removed
+  	 *
 	 * @param node current node, also the node that is going to get removed
 	 * @param child predecessor node
 	 * @return predecessor node
@@ -189,21 +174,13 @@ public class BST<T extends Comparable<? super T>> {
 	}
 
 	/**
-	 * Returns the data from the tree matching the given parameter.
-	 *
-	 * This must be done recursively.
-	 *
-	 * Do not return the same data that was passed in. Return the data that
-	 * was stored in the tree.
-	 *
-	 * Hint: Should you use value equality or reference equality?
-	 *
-	 * Must be O(log n) for best and average cases and O(n) for worst case.
+	 * Recursively Returns the data from the tree matching the given parameter.
+	 * O(log n) for best and average cases and O(n) for worst case.
 	 *
 	 * @param data the data to search for
 	 * @return the data in the tree equal to the parameter
 	 * @throws java.lang.IllegalArgumentException if data is null
-	 * @throws java.util.NoSuchElementException   if the data is not in the tree
+	 * @throws java.util.NoSuchElementException if the data is not in the tree
 	 */
 	public T get(T data) {
 		if (data == null) {
@@ -234,18 +211,13 @@ public class BST<T extends Comparable<? super T>> {
 	}
 
 	/**
-	 * Returns whether or not data matching the given parameter is contained
+	 * Recursively returns whether or not data matching the given parameter is contained
 	 * within the tree.
 	 *
-	 * This must be done recursively.
-	 *
-	 * Hint: Should you use value equality or reference equality?
-	 *
-	 * Must be O(log n) for best and average cases and O(n) for worst case.
+	 * O(log n) for best and average cases and O(n) for worst case.
 	 *
 	 * @param data the data to search for
-	 * @return true if the parameter is contained within the tree, false
-	 * otherwise
+	 * @return true if the parameter is contained within the tree, false otherwise
 	 * @throws java.lang.IllegalArgumentException if data is null
 	 */
 	public boolean contains(T data) {
